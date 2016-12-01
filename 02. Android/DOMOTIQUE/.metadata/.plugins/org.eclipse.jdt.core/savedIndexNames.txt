@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+D:\DOMOTIQUE\.metadata\.plugins\org.eclipse.jdt.core
+2836109955.index
+630010313.index
+783754427.index

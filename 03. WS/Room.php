@@ -7,36 +7,50 @@ $response = array();
 
 
 // include db connect class
-require_once __DIR__ . '/db_connect.php';
-
+require "db_connect.php";
 
 // connecting to db
 $db = new DB_CONNECT();
-
- @$id_usr=$_GET['id_usr'];
-  @$des_rm=$_GET['des_rm'];
-   @$li_s=$_GET['li_s'];
-    @$sh_s=$_GET['sh_s'];
-	@$th_s=$_GET['th_s'];
-	
- 
-		
- 
-		$result = mysql_query("insert into rooms (id_usr,des_rm,li_s,sh_s,th_s) values ($id_usr,'$des_rm',$sh_s,$li_s,$th_s) ") or die(mysql_error());
-		if($result)
+if(isset($_GET['id_user']))  
 {
-		 $response["success"] = 1;
-		$response["message"] = "piece ajoutée";
-       // echo no users JSON
-        echo json_encode($response);
- }
- else
+ @$id_user=$_GET['id_user'];
+    }
+	else 
+	{
+	@$id_user=0;
+	}
+ $result = mysql_query("SELECT * FROM `rooms` WHERE `id_rm` in (SELECT `id_rm` FROM `droits_utu` WHERE `id_user`=".$id_user.")") or die(mysql_error());
+
+ 
+if (mysql_num_rows($result) > 0)
  {
-  $response["success"] = 0;
-		$response["message"] = "erreur lors l'ajout";
-       // echo no users JSON
-        echo json_encode($response);
- }
-     
+     $response["Room"] = array();  
+   while(  $row = mysql_fetch_array($result) )
+        {
+		 $Room = array();
+        $Room["id_rm"] = $row["id_rm"];
+        $Room["des_rm"] = $row["des_rm"];
+		 $Room["temp_rm"] = $row["temp_rm"];
+		   $Room["himu_rm"] = $row["himu_rm"];
+		
+        // push single per into final response array
+        array_push($response["Room"], $Room);
+		 }
+    // echoing JSON response
+	     $response["success"] = 1;
+	     $response["message"] = "List";
+    echo json_encode($response);
+	}else
+	{
+	    
+		 $response["success"] = 0;
+	     $response["message"] = "pas de piéce ";
+    // echoing JSON response
+    echo json_encode($response);
+	}
+    
+   
+ 
+ 
  
 ?>
