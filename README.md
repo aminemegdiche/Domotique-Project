@@ -19,3 +19,39 @@ client.
 événement tel que la hausse de la température à un seuil fixé par l’utilisateur, dans ce cas : le
 serveur active automatiquement la climatisation, on peut aussi programmer le serveur pour
 qu’il nous envoie une alerte sur notre terminal mobile s’il détecte une présence hostile.
+
+# Capture des besoins
+## Identification des acteurs
+a. Les acteurs
+« Un acteur représente l’abstraction d’un rôle joué par des entités externes (utilisateur,
+dispositif matériel ou autre système) qui interagissent directement avec le système étudié. » [mg]
+Tous simplement un acteur est une entité physique (personne) ou abstraite (logiciel)
+capable d’utilisée le système afin de répondre à un besoin bien définit. Les acteurs de notre
+application sont :
+Utilisateur : Il désigne la personne ou l'entité qui prend la décision de consulte les états des équipements, pilote les différent équipements.
+Administrateur : l’administrateur a accès à toutes les fonctionnalités du système sans limite, ces fonctionnalités qui sont principalement la gestion des maisons, les endroits, les équipements.
+## Les besoins fonctionnels
+Les besoins fonctionnels ou les cas d’utilisations en terme d’UML peuvent être définis comme suit : « Un cas d’utilisation (use case) représente un ensemble de séquences d’actions réalisées par le système et produisant un résultat observable intéressant pour un acteur particulier. » [MG]
+Un cas d’utilisation est une suite d’actions effectuées par le système afin de répondre à
+une demande d’un utilisateur (acteur). Dans ce qui suit, nous décrivons les différents besoins fonctionnels de notre système par acteur :
+
+Utilisateur : cet acteur attend les fonctionnalités suivantes au système :
+•	Authentification
+•	Consulter l’état des équipements électriques
+•	Piloter les différents équipements électriques
+•	Consulter  température et humidité
+Administrateur : cet acteur se focalise essentiellement sur les fonctionnalités 
+•	Gérer les maisons, les endroits.
+•	Gérer les endroits.
+•	Gérer les équipements.
+•	
+## Les besoins non fonctionnels
+Les besoins non fonctionnels sont des besoins qui ont un aspect visible pour l’utilisateur, mais qui ne sont pas reliés directement au comportement du système. Les besoins non fonctionnels de notre système se décrivent comme suit :
+
+•	De la sécurité 
+La solution proposée permet à l’utilisateur une navigation sécurisée. Elle n’est accessible qu’avec une authentification.
+
+•	Besoins d’utilisation : 
+Tous les standards d’ergonomies doivent être présents : interface utilisateur bien claire et simple dans l’utilisation.
+•	Besoins de performance : il s’agit d’optimiser le temps de chargements des pages par l’utilisation des bonnes pratiques du développement.
+
