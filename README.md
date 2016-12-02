@@ -21,6 +21,7 @@ serveur active automatiquement la climatisation, on peut aussi programmer le ser
 qu’il nous envoie une alerte sur notre terminal mobile s’il détecte une présence hostile.
 
 # Capture des besoins
+```
 ## Identification des acteurs
 a. Les acteurs
 « Un acteur représente l’abstraction d’un rôle joué par des entités externes (utilisateur,
@@ -44,7 +45,6 @@ Administrateur : cet acteur se focalise essentiellement sur les fonctionnalités
 •	Gérer les maisons, les endroits.
 •	Gérer les endroits.
 •	Gérer les équipements.
-•	
 ## Les besoins non fonctionnels
 Les besoins non fonctionnels sont des besoins qui ont un aspect visible pour l’utilisateur, mais qui ne sont pas reliés directement au comportement du système. Les besoins non fonctionnels de notre système se décrivent comme suit :
 
@@ -54,4 +54,4 @@ La solution proposée permet à l’utilisateur une navigation sécurisée. Elle
 •	Besoins d’utilisation : 
 Tous les standards d’ergonomies doivent être présents : interface utilisateur bien claire et simple dans l’utilisation.
 •	Besoins de performance : il s’agit d’optimiser le temps de chargements des pages par l’utilisation des bonnes pratiques du développement.
-
+```
