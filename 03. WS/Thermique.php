@@ -7,41 +7,34 @@ $response = array();
 
 
 // include db connect class
-require_once __DIR__ . '/db_connect.php';
+require "db_connect.php";
 
-
+$id_climatiseur=0;
 // connecting to db
 $db = new DB_CONNECT();
+if(isset($_GET['id_climatiseur'])and isset($_GET['niveau'])and isset($_GET['etat']) and isset($_GET['chaud_froid']))
+{
+  @$id_climatiseur=$_GET['id_climatiseur'];
+    @$niveau=$_GET['niveau'];
+	  @$chaud_froid=$_GET['chaud_froid'];
+	    @$etat=$_GET['etat'];
+			$result = mysql_query(" update `climatiseur` set `niveau_clima`=".$niveau." ,`etat_clima`=".$etat.",`mode_clima`=".$chaud_froid."  where `id_climatiseur`=".$id_climatiseur."; ") or die(mysql_error());
+		print($result);
+	}
 
- @$id_usr=$_GET['id_usr'];
-  @$id_rm=$_GET['id_rm'];
-    @$th=$_GET['th'];
-	 @$th_m=$_GET['th_m'];
-	
- 
-		
- 
-		$result = mysql_query(" update rooms set th_m=$th_m,th=$th where id_rm=$id_rm and id_usr=$id_usr ; ") or die(mysql_error());
 		if($result)
 {
 		 $response["success"] = 1;
-		 if($th==0)
+		 if($etat==1 )
 			{
-			$response["message"] = "Clim off ";
-			$response["th"] = 0;
-			}
+			$response["message"] = "climatiseur allume";
+			$response["etat"] = 1;
 			
-			 if($th==1 && $th_m==0)
-			{
-			$response["message"] = "Clim mode Froid";
-			$response["th"] = 1;
-			$response["th_m"] = 0;
 			}
-			 if($th==1 && $th_m==1)
+			else 
 			{
-			$response["message"] = "Clim mode Chaud";
-			$response["th"] = 1;
-			$response["th_m"] = 1;
+			$response["message"] = "climatiseur eteint";
+			$response["etat"] = 0;
 			}
        // echo no users JSON
         echo json_encode($response);
